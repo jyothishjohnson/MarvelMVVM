@@ -46,28 +46,3 @@ class NewsListViewModel {
     }
 
 }
-
-
-struct MarvelResponse: Decodable {
-    let data : MarvelData?
-}
-
-struct MarvelData: Decodable {
-    let results : [MarvelCharacter]?
-}
-
-struct MarvelCharacter: Decodable{
-    let id : Int?
-    let name : String?
-    let thumbnail : MarvelCharacterImage?
-}
-
-struct MarvelCharacterImage: Decodable {
-    let path : String?
-    let `extension` : String?
-    
-//    private enum CodingKeys : String, CodingKeys {
-//        case path
-//        case `extension`
-//    }
-}

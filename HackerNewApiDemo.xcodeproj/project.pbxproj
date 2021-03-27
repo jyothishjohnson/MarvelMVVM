@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2225DE26260F96CC00E7B492 /* MarvelCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225DE25260F96CC00E7B492 /* MarvelCharacter.swift */; };
+		2225DE29260F96F300E7B492 /* MarvelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225DE28260F96F300E7B492 /* MarvelResponse.swift */; };
+		2225DE2C260F970000E7B492 /* MarvelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225DE2B260F970000E7B492 /* MarvelData.swift */; };
+		2225DE2F260F970C00E7B492 /* MarvelCharacterImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225DE2E260F970C00E7B492 /* MarvelCharacterImage.swift */; };
 		224D2B7F260E4EDE00C5EADC /* MarvelCharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224D2B7D260E4EDE00C5EADC /* MarvelCharacterCell.swift */; };
 		224D2B80260E4EDE00C5EADC /* MarvelCharacterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 224D2B7E260E4EDE00C5EADC /* MarvelCharacterCell.xib */; };
 		224D2B84260E53B300C5EADC /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224D2B83260E53B300C5EADC /* UIColor+Hex.swift */; };
@@ -24,6 +28,10 @@
 
 /* Begin PBXFileReference section */
 		11026D5C99D8F14D1DA20EF7 /* Pods_HackerNewApiDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackerNewApiDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2225DE25260F96CC00E7B492 /* MarvelCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelCharacter.swift; sourceTree = "<group>"; };
+		2225DE28260F96F300E7B492 /* MarvelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelResponse.swift; sourceTree = "<group>"; };
+		2225DE2B260F970000E7B492 /* MarvelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelData.swift; sourceTree = "<group>"; };
+		2225DE2E260F970C00E7B492 /* MarvelCharacterImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelCharacterImage.swift; sourceTree = "<group>"; };
 		224D2B7D260E4EDE00C5EADC /* MarvelCharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelCharacterCell.swift; sourceTree = "<group>"; };
 		224D2B7E260E4EDE00C5EADC /* MarvelCharacterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarvelCharacterCell.xib; sourceTree = "<group>"; };
 		224D2B83260E53B300C5EADC /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
@@ -54,6 +62,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2225DE21260F963900E7B492 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				22ABEDD1260D99210033B658 /* LaunchScreen.storyboard */,
+				22ABEDC6260D99200033B658 /* AppDelegate.swift */,
+				22ABEDC8260D99200033B658 /* SceneDelegate.swift */,
+				224D2B83260E53B300C5EADC /* UIColor+Hex.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		2225DE22260F965200E7B492 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				224D2B8A260E600D00C5EADC /* TabBarViewController.swift */,
+				22ABEDE2260D9E610033B658 /* ViewController.swift */,
+				22ABEDE3260D9E610033B658 /* ViewController.xib */,
+				224D2B7D260E4EDE00C5EADC /* MarvelCharacterCell.swift */,
+				224D2B7E260E4EDE00C5EADC /* MarvelCharacterCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2225DE23260F967300E7B492 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				224D2B90260E737900C5EADC /* NewsListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		2225DE24260F96B500E7B492 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2225DE25260F96CC00E7B492 /* MarvelCharacter.swift */,
+				2225DE28260F96F300E7B492 /* MarvelResponse.swift */,
+				2225DE2B260F970000E7B492 /* MarvelData.swift */,
+				2225DE2E260F970C00E7B492 /* MarvelCharacterImage.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		22ABEDBA260D99200033B658 = {
 			isa = PBXGroup;
 			children = (
@@ -75,19 +125,13 @@
 		22ABEDC5260D99200033B658 /* HackerNewApiDemo */ = {
 			isa = PBXGroup;
 			children = (
+				2225DE24260F96B500E7B492 /* Models */,
+				2225DE22260F965200E7B492 /* Views */,
+				2225DE23260F967300E7B492 /* ViewModels */,
 				224D2B8D260E731700C5EADC /* NetworkManager.swift */,
-				22ABEDC6260D99200033B658 /* AppDelegate.swift */,
-				22ABEDC8260D99200033B658 /* SceneDelegate.swift */,
-				224D2B8A260E600D00C5EADC /* TabBarViewController.swift */,
-				22ABEDCF260D99210033B658 /* Assets.xcassets */,
-				22ABEDD1260D99210033B658 /* LaunchScreen.storyboard */,
 				22ABEDD4260D99210033B658 /* Info.plist */,
-				22ABEDE2260D9E610033B658 /* ViewController.swift */,
-				22ABEDE3260D9E610033B658 /* ViewController.xib */,
-				224D2B90260E737900C5EADC /* NewsListViewModel.swift */,
-				224D2B7D260E4EDE00C5EADC /* MarvelCharacterCell.swift */,
-				224D2B7E260E4EDE00C5EADC /* MarvelCharacterCell.xib */,
-				224D2B83260E53B300C5EADC /* UIColor+Hex.swift */,
+				22ABEDCF260D99210033B658 /* Assets.xcassets */,
+				2225DE21260F963900E7B492 /* Utils */,
 			);
 			path = HackerNewApiDemo;
 			sourceTree = "<group>";
@@ -226,9 +270,13 @@
 			files = (
 				22ABEDE4260D9E610033B658 /* ViewController.swift in Sources */,
 				224D2B7F260E4EDE00C5EADC /* MarvelCharacterCell.swift in Sources */,
+				2225DE26260F96CC00E7B492 /* MarvelCharacter.swift in Sources */,
+				2225DE29260F96F300E7B492 /* MarvelResponse.swift in Sources */,
+				2225DE2C260F970000E7B492 /* MarvelData.swift in Sources */,
 				22ABEDC7260D99200033B658 /* AppDelegate.swift in Sources */,
 				224D2B8E260E731700C5EADC /* NetworkManager.swift in Sources */,
 				22ABEDC9260D99200033B658 /* SceneDelegate.swift in Sources */,
+				2225DE2F260F970C00E7B492 /* MarvelCharacterImage.swift in Sources */,
 				224D2B8B260E600D00C5EADC /* TabBarViewController.swift in Sources */,
 				224D2B84260E53B300C5EADC /* UIColor+Hex.swift in Sources */,
 				224D2B91260E737900C5EADC /* NewsListViewModel.swift in Sources */,
