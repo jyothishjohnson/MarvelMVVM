@@ -23,6 +23,8 @@
 		22ABEDD3260D99210033B658 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22ABEDD1260D99210033B658 /* LaunchScreen.storyboard */; };
 		22ABEDE4260D9E610033B658 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ABEDE2260D9E610033B658 /* ViewController.swift */; };
 		22ABEDE5260D9E610033B658 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22ABEDE3260D9E610033B658 /* ViewController.xib */; };
+		22EB6D042622DBC900BDE5BD /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EB6D022622DBC900BDE5BD /* LoadingCell.swift */; };
+		22EB6D052622DBC900BDE5BD /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22EB6D032622DBC900BDE5BD /* LoadingCell.xib */; };
 		CF33474671AFF813C2A2CAF6 /* Pods_HackerNewApiDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11026D5C99D8F14D1DA20EF7 /* Pods_HackerNewApiDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +48,8 @@
 		22ABEDD4260D99210033B658 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22ABEDE2260D9E610033B658 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		22ABEDE3260D9E610033B658 /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		22EB6D022622DBC900BDE5BD /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
+		22EB6D032622DBC900BDE5BD /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		28EF4B250FC943C3E65A0D6A /* Pods-HackerNewApiDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackerNewApiDemo.debug.xcconfig"; path = "Target Support Files/Pods-HackerNewApiDemo/Pods-HackerNewApiDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		CB3A1F914EB015D6EA9C0E7A /* Pods-HackerNewApiDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackerNewApiDemo.release.xcconfig"; path = "Target Support Files/Pods-HackerNewApiDemo/Pods-HackerNewApiDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +85,8 @@
 				22ABEDE3260D9E610033B658 /* ViewController.xib */,
 				224D2B7D260E4EDE00C5EADC /* MarvelCharacterCell.swift */,
 				224D2B7E260E4EDE00C5EADC /* MarvelCharacterCell.xib */,
+				22EB6D022622DBC900BDE5BD /* LoadingCell.swift */,
+				22EB6D032622DBC900BDE5BD /* LoadingCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -215,6 +221,7 @@
 				22ABEDD3260D99210033B658 /* LaunchScreen.storyboard in Resources */,
 				224D2B80260E4EDE00C5EADC /* MarvelCharacterCell.xib in Resources */,
 				22ABEDE5260D9E610033B658 /* ViewController.xib in Resources */,
+				22EB6D052622DBC900BDE5BD /* LoadingCell.xib in Resources */,
 				22ABEDD0260D99210033B658 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,6 +282,7 @@
 				2225DE2C260F970000E7B492 /* MarvelData.swift in Sources */,
 				22ABEDC7260D99200033B658 /* AppDelegate.swift in Sources */,
 				224D2B8E260E731700C5EADC /* NetworkManager.swift in Sources */,
+				22EB6D042622DBC900BDE5BD /* LoadingCell.swift in Sources */,
 				22ABEDC9260D99200033B658 /* SceneDelegate.swift in Sources */,
 				2225DE2F260F970C00E7B492 /* MarvelCharacterImage.swift in Sources */,
 				224D2B8B260E600D00C5EADC /* TabBarViewController.swift in Sources */,
