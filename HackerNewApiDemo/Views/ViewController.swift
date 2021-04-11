@@ -11,7 +11,9 @@ class ViewController: UIViewController{
 
     @IBOutlet weak var tableView: UITableView!
     
-    var marvelCharacter : [MarvelCharacter] = []
+    var isLoading : Bool = false
+    
+    var marvelCharactersData : [MarvelCharacter] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,9 +25,11 @@ class ViewController: UIViewController{
         
         tableView.register(UINib(nibName: "MarvelCharacterCell", bundle: .main), forCellReuseIdentifier: "characterCell")
         
-        NewsListViewModel().loadNewsList{ [weak self] characters in
+        isLoading = true
+        NewsListViewModel.loadNewsList{ [weak self] characters in
             DispatchQueue.main.async {
-                self?.marvelCharacter = characters
+                self?.isLoading = false
+                self?.marvelCharactersData = characters
                 self?.tableView.reloadData()
             }
 
@@ -41,7 +45,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        marvelCharacter.count
+        marvelCharactersData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -50,8 +54,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
             fatalError()
         }
         
-        cell.characterName = marvelCharacter[indexPath.row].name
-        let imagePath = "\(marvelCharacter[indexPath.row].thumbnail?.path ?? "").\(marvelCharacter[indexPath.row].thumbnail?.extension ?? "")"
+        cell.characterName = marvelCharactersData[indexPath.row].name
+        let imagePath = "\(marvelCharactersData[indexPath.row].thumbnail?.path ?? "").\(marvelCharactersData[indexPath.row].thumbnail?.extension ?? "")"
         cell.imageURL = imagePath
         
         return cell
@@ -63,6 +67,30 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+
+        if (offsetY > contentHeight * 0.75 && !isLoading) {
+            loadMore()
+        }
+    }
+    
+    func loadMore(){
+        print(#function)
+        isLoading = true
+        NewsListViewModel.loadNewsList(offset: marvelCharactersData.count){
+            [weak self] characters in
+            
+            DispatchQueue.main.async {
+                self?.isLoading = false
+                self?.marvelCharactersData.append(contentsOf: characters)
+                self?.tableView.reloadData()
+            }
+
+        }
     }
 
 }
