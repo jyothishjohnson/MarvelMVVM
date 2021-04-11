@@ -7,19 +7,20 @@
 
 import Foundation
 
-class NewsListViewModel {
+final class NewsListViewModel {
     
-    let base = "https://gateway.marvel.com/"
-    let ts = "1616790639"
-    let apikey = "e5485027d898a87c3809c77a12e0591e"
-    let hash = "8a90000c7eb3c0030bf9aedcaa36445f"
+    static let base = "https://gateway.marvel.com/"
+    static let ts = "1616790639"
+    static let apikey = "e5485027d898a87c3809c77a12e0591e"
+    static let hash = "8a90000c7eb3c0030bf9aedcaa36445f"
     
-    let characters = "/v1/public/characters"
+    static let characters = "/v1/public/characters"
 //    https://gateway.marvel.com/v1/public/characters?ts=1616790639&apikey=e5485027d898a87c3809c77a12e0591e&hash=8a90000c7eb3c0030bf9aedcaa36445f
     
     
-    func loadNewsList(completion : @escaping ([MarvelCharacter]) -> ()){
-        NetworkManager.shared.makeRequest(createAPIEndpoint(to: characters)) { (res : Result<MarvelResponse,NetworkManagerError>) in
+    static func loadNewsList(offset : Int = 0, completion : @escaping ([MarvelCharacter]) -> ()){
+        NetworkManager.shared.makeRequest(createAPIEndpoint(to: characters, offset: offset)) {
+            (res : Result<MarvelResponse,NetworkManagerError>) in
             switch res {
             
             case .success(let response):
@@ -31,15 +32,15 @@ class NewsListViewModel {
         
     }
     
-    fileprivate func createAPIEndpoint(to hit : String) -> URLRequest{
-        var url = URL(string: base)
+    fileprivate static func createAPIEndpoint(to hit : String, offset : Int) -> URLRequest{
+        var url = URL(string: NewsListViewModel.base)
         url?.appendPathComponent(hit)
         var components = URLComponents(url: url!, resolvingAgainstBaseURL: false)
         components!.queryItems = [
-            URLQueryItem(name: "ts", value: ts),
-            URLQueryItem(name: "apikey", value: apikey),
-            URLQueryItem(name: "hash", value: hash)]
-     
+            URLQueryItem(name: "ts", value: NewsListViewModel.ts),
+            URLQueryItem(name: "apikey", value: NewsListViewModel.apikey),
+            URLQueryItem(name: "hash", value: NewsListViewModel.hash),
+            URLQueryItem(name: "offset", value: "\(offset)")]
         var urlRequest = URLRequest(url: components!.url!)
         urlRequest.httpMethod = NetworkMethods.GET.rawValue
         return urlRequest
