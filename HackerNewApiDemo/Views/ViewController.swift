@@ -73,7 +73,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
 
-        if (offsetY > contentHeight * 0.75 && !isLoading) {
+        if (offsetY > contentHeight * 0.75 && !isLoading && MCharacterListViewModel.currentTotal > marvelCharactersData.count) {
             loadMore()
         }
     }

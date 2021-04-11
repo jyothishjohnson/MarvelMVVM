@@ -15,6 +15,7 @@ final class MCharacterListViewModel {
     static let hash = "8a90000c7eb3c0030bf9aedcaa36445f"
     
     static let characters = "/v1/public/characters"
+    static var currentTotal : Int = 0
 //    https://gateway.marvel.com/v1/public/characters?ts=1616790639&apikey=e5485027d898a87c3809c77a12e0591e&hash=8a90000c7eb3c0030bf9aedcaa36445f
     
     
@@ -24,6 +25,7 @@ final class MCharacterListViewModel {
             switch res {
             
             case .success(let response):
+                currentTotal = response.data?.total ?? response.data?.results?.count ?? 0
                 completion(response.data?.results ?? [])
             case .failure(let error):
                 print(error)
