@@ -16,7 +16,7 @@
 		224D2B84260E53B300C5EADC /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224D2B83260E53B300C5EADC /* UIColor+Hex.swift */; };
 		224D2B8B260E600D00C5EADC /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224D2B8A260E600D00C5EADC /* TabBarViewController.swift */; };
 		224D2B8E260E731700C5EADC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224D2B8D260E731700C5EADC /* NetworkManager.swift */; };
-		224D2B91260E737900C5EADC /* NewsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224D2B90260E737900C5EADC /* NewsListViewModel.swift */; };
+		224D2B91260E737900C5EADC /* MCharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224D2B90260E737900C5EADC /* MCharacterListViewModel.swift */; };
 		22ABEDC7260D99200033B658 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ABEDC6260D99200033B658 /* AppDelegate.swift */; };
 		22ABEDC9260D99200033B658 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ABEDC8260D99200033B658 /* SceneDelegate.swift */; };
 		22ABEDD0260D99210033B658 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22ABEDCF260D99210033B658 /* Assets.xcassets */; };
@@ -37,7 +37,7 @@
 		224D2B83260E53B300C5EADC /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		224D2B8A260E600D00C5EADC /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		224D2B8D260E731700C5EADC /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		224D2B90260E737900C5EADC /* NewsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListViewModel.swift; sourceTree = "<group>"; };
+		224D2B90260E737900C5EADC /* MCharacterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCharacterListViewModel.swift; sourceTree = "<group>"; };
 		22ABEDC3260D99200033B658 /* HackerNewApiDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerNewApiDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22ABEDC6260D99200033B658 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22ABEDC8260D99200033B658 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 		2225DE23260F967300E7B492 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				224D2B90260E737900C5EADC /* NewsListViewModel.swift */,
+				224D2B90260E737900C5EADC /* MCharacterListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -279,7 +279,7 @@
 				2225DE2F260F970C00E7B492 /* MarvelCharacterImage.swift in Sources */,
 				224D2B8B260E600D00C5EADC /* TabBarViewController.swift in Sources */,
 				224D2B84260E53B300C5EADC /* UIColor+Hex.swift in Sources */,
-				224D2B91260E737900C5EADC /* NewsListViewModel.swift in Sources */,
+				224D2B91260E737900C5EADC /* MCharacterListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

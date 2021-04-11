@@ -26,7 +26,7 @@ class ViewController: UIViewController{
         tableView.register(UINib(nibName: "MarvelCharacterCell", bundle: .main), forCellReuseIdentifier: "characterCell")
         
         isLoading = true
-        NewsListViewModel.loadNewsList{ [weak self] characters in
+        MCharacterListViewModel.loadNewsList{ [weak self] characters in
             DispatchQueue.main.async {
                 self?.isLoading = false
                 self?.marvelCharactersData = characters
@@ -81,7 +81,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     func loadMore(){
         print(#function)
         isLoading = true
-        NewsListViewModel.loadNewsList(offset: marvelCharactersData.count){
+        MCharacterListViewModel.loadNewsList(offset: marvelCharactersData.count){
             [weak self] characters in
             
             DispatchQueue.main.async {

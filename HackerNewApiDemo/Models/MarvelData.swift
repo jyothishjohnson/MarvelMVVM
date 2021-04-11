@@ -8,5 +8,6 @@
 import Foundation
 
 struct MarvelData: Decodable {
+    let total : Int?
     let results : [MarvelCharacter]?
 }

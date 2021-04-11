@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class NewsListViewModel {
+final class MCharacterListViewModel {
     
     static let base = "https://gateway.marvel.com/"
     static let ts = "1616790639"
@@ -33,13 +33,13 @@ final class NewsListViewModel {
     }
     
     fileprivate static func createAPIEndpoint(to hit : String, offset : Int) -> URLRequest{
-        var url = URL(string: NewsListViewModel.base)
+        var url = URL(string: MCharacterListViewModel.base)
         url?.appendPathComponent(hit)
         var components = URLComponents(url: url!, resolvingAgainstBaseURL: false)
         components!.queryItems = [
-            URLQueryItem(name: "ts", value: NewsListViewModel.ts),
-            URLQueryItem(name: "apikey", value: NewsListViewModel.apikey),
-            URLQueryItem(name: "hash", value: NewsListViewModel.hash),
+            URLQueryItem(name: "ts", value: MCharacterListViewModel.ts),
+            URLQueryItem(name: "apikey", value: MCharacterListViewModel.apikey),
+            URLQueryItem(name: "hash", value: MCharacterListViewModel.hash),
             URLQueryItem(name: "offset", value: "\(offset)")]
         var urlRequest = URLRequest(url: components!.url!)
         urlRequest.httpMethod = NetworkMethods.GET.rawValue
