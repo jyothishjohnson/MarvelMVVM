@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController{
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     var isLoading : Bool = false
@@ -23,7 +23,7 @@ class ViewController: UIViewController{
         tableView.indicatorStyle = .white
         tableView.tableFooterView = UIView()
         
-        tableView.register(UINib(nibName: "MarvelCharacterCell", bundle: .main), forCellReuseIdentifier: "characterCell")
+        registerCells()
         
         isLoading = true
         MCharacterListViewModel.loadNewsList{ [weak self] characters in
@@ -32,7 +32,7 @@ class ViewController: UIViewController{
                 self?.marvelCharactersData = characters
                 self?.tableView.reloadData()
             }
-
+            
         }
     }
     
@@ -41,28 +41,44 @@ class ViewController: UIViewController{
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        1
+        2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        marvelCharactersData.count
+        if section == 0 {
+            return marvelCharactersData.count
+        }else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "characterCell", for: indexPath) as? MarvelCharacterCell else {
-            fatalError()
+        if indexPath.section == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: IconCells.MarvelCharacterCell.rawValue, for: indexPath) as? MarvelCharacterCell else {
+                fatalError()
+            }
+            
+            cell.characterName = marvelCharactersData[indexPath.row].name
+            let imagePath = "\(marvelCharactersData[indexPath.row].thumbnail?.path ?? "").\(marvelCharactersData[indexPath.row].thumbnail?.extension ?? "")"
+            cell.imageURL = imagePath
+            
+            return cell
+        }else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: IconCells.LoadingCell.rawValue, for: indexPath) as? LoadingCell else {
+                fatalError()
+            }
+            cell.isLoading = isLoading
+            return cell
         }
-        
-        cell.characterName = marvelCharactersData[indexPath.row].name
-        let imagePath = "\(marvelCharactersData[indexPath.row].thumbnail?.path ?? "").\(marvelCharactersData[indexPath.row].thumbnail?.extension ?? "")"
-        cell.imageURL = imagePath
-        
-        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        120
+        if indexPath.section == 0 {
+            return 120
+        }else {
+            return 80
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -93,4 +109,21 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         }
     }
 
+}
+
+
+//MARK: - Register cells
+
+extension ViewController {
+    
+    private enum IconCells: String, CaseIterable{
+        case MarvelCharacterCell
+        case LoadingCell
+    }
+    
+    func registerCells(){
+        IconCells.allCases.forEach { (icon) in
+            tableView.register(UINib(nibName: icon.rawValue, bundle: .main), forCellReuseIdentifier: icon.rawValue)
+        }
+    }
 }
