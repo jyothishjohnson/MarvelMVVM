@@ -27,6 +27,7 @@ class MarvelCharacterCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
+        characterImage.layer.cornerRadius = 8
     }
     
 }
