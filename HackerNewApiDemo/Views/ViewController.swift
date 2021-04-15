@@ -14,10 +14,13 @@ class ViewController: UIViewController{
     var isLoading : Bool = false
     
     var marvelCharactersData : [MarvelCharacter] = []
+    var searchFilteredData : [MarvelCharacter] = []
+    
+    let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setUpSearchBar()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.indicatorStyle = .white
@@ -41,12 +44,20 @@ class ViewController: UIViewController{
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        2
+        if searchController.isActive{
+            return 1
+        }else{
+            return 2
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return marvelCharactersData.count
+            if searchController.isActive{
+                return searchFilteredData.count
+            }else {
+                return marvelCharactersData.count
+            }
         }else {
             return 1
         }
@@ -59,8 +70,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
                 fatalError()
             }
             
-            cell.characterName = marvelCharactersData[indexPath.row].name
-            let imagePath = "\(marvelCharactersData[indexPath.row].thumbnail?.path ?? "").\(marvelCharactersData[indexPath.row].thumbnail?.extension ?? "")"
+            let characterNameText = searchController.isActive ? searchFilteredData[indexPath.row].name : marvelCharactersData[indexPath.row].name
+            cell.characterName = characterNameText
+            
+            let imagePath = searchController.isActive ? "\(searchFilteredData[indexPath.row].thumbnail?.path ?? "").\(searchFilteredData[indexPath.row].thumbnail?.extension ?? "")" :
+                "\(marvelCharactersData[indexPath.row].thumbnail?.path ?? "").\(marvelCharactersData[indexPath.row].thumbnail?.extension ?? "")"
             cell.imageURL = imagePath
             
             return cell
@@ -88,8 +102,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
-
-        if (offsetY > contentHeight * 0.75 && !isLoading && MCharacterListViewModel.currentTotal > marvelCharactersData.count) {
+        
+        if (offsetY > contentHeight * 0.75 && !isLoading &&
+                MCharacterListViewModel.currentTotal > marvelCharactersData.count &&
+                !searchController.isActive) {
             loadMore()
         }
     }
@@ -125,5 +141,36 @@ extension ViewController {
         IconCells.allCases.forEach { (icon) in
             tableView.register(UINib(nibName: icon.rawValue, bundle: .main), forCellReuseIdentifier: icon.rawValue)
         }
+    }
+}
+
+extension ViewController: UISearchResultsUpdating{
+    
+    func setUpSearchBar(){
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Characters"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        // TODO
+        guard searchController.isActive else {
+            tableView.reloadData()
+            return
+        }
+        let searchBar = searchController.searchBar
+        let text = searchBar.text
+        if let searchText = text, !searchText.isEmpty {
+            search(for: searchText)
+        }
+    }
+    
+    func search(for searchString : String){
+        searchFilteredData = marvelCharactersData.filter({ (character) -> Bool in
+            (character.name?.hasPrefix(searchString) ?? false)
+        })
+        tableView.reloadData()
     }
 }
