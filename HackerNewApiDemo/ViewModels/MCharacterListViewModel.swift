@@ -65,4 +65,16 @@ final class MCharacterListViewModel {
         return []
     }
     
+    static func deleteEntity(name entityName: String){
+        
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: entityName)
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+        do {
+            try container.persistentStoreCoordinator.execute(deleteRequest, with: container.viewContext)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+    }
+    
 }

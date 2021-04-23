@@ -33,6 +33,8 @@ class ViewController: UIViewController{
         
         isLoading = true
         
+        MCharacterListViewModel.deleteEntity(name: "MCharacter")
+        
         let character = MCharacter(context: context)
         character.name = "Jyo"
         character.id = 1
@@ -121,6 +123,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
+        
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
