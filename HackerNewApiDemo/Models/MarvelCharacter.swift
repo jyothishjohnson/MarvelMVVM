@@ -31,7 +31,9 @@ struct MarvelCharacter: Decodable, Hashable{
     private static func mapImagePath(from urlString : String) -> (path:String?, extension: String?){
         
         if let range = urlString.range(of: ".", options: .backwards){
-            return (String(urlString[..<range.upperBound]),String(urlString[range.lowerBound...]))
+            let pathSubstring = urlString[urlString.startIndex..<urlString.index(before: range.upperBound)]
+            let startIndexForExtension = urlString.index(after: range.lowerBound)
+            return (String(pathSubstring),String(urlString[startIndexForExtension...]))
         }
 
         return (nil,nil)
