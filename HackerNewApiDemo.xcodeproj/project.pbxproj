@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		220AA3682632AD1400F8FD25 /* Marvel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 220AA3662632AD1400F8FD25 /* Marvel.xcdatamodeld */; };
 		2225DE26260F96CC00E7B492 /* MarvelCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225DE25260F96CC00E7B492 /* MarvelCharacter.swift */; };
 		2225DE29260F96F300E7B492 /* MarvelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225DE28260F96F300E7B492 /* MarvelResponse.swift */; };
 		2225DE2C260F970000E7B492 /* MarvelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2225DE2B260F970000E7B492 /* MarvelData.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		11026D5C99D8F14D1DA20EF7 /* Pods_HackerNewApiDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HackerNewApiDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		220AA3672632AD1400F8FD25 /* Marvel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Marvel.xcdatamodel; sourceTree = "<group>"; };
 		2225DE25260F96CC00E7B492 /* MarvelCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelCharacter.swift; sourceTree = "<group>"; };
 		2225DE28260F96F300E7B492 /* MarvelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelResponse.swift; sourceTree = "<group>"; };
 		2225DE2B260F970000E7B492 /* MarvelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelData.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				22ABEDD4260D99210033B658 /* Info.plist */,
 				22ABEDCF260D99210033B658 /* Assets.xcassets */,
 				2225DE21260F963900E7B492 /* Utils */,
+				220AA3662632AD1400F8FD25 /* Marvel.xcdatamodeld */,
 			);
 			path = HackerNewApiDemo;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				224D2B7F260E4EDE00C5EADC /* MarvelCharacterCell.swift in Sources */,
 				2225DE26260F96CC00E7B492 /* MarvelCharacter.swift in Sources */,
 				2225DE29260F96F300E7B492 /* MarvelResponse.swift in Sources */,
+				220AA3682632AD1400F8FD25 /* Marvel.xcdatamodeld in Sources */,
 				2225DE2C260F970000E7B492 /* MarvelData.swift in Sources */,
 				22ABEDC7260D99200033B658 /* AppDelegate.swift in Sources */,
 				224D2B8E260E731700C5EADC /* NetworkManager.swift in Sources */,
@@ -483,6 +487,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		220AA3662632AD1400F8FD25 /* Marvel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				220AA3672632AD1400F8FD25 /* Marvel.xcdatamodel */,
+			);
+			currentVersion = 220AA3672632AD1400F8FD25 /* Marvel.xcdatamodel */;
+			path = Marvel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 22ABEDBB260D99200033B658 /* Project object */;
 }

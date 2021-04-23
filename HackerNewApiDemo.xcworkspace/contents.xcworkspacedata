@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:MCharacter+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:MCharacter+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:HackerNewApiDemo.xcodeproj">
    </FileRef>
    <FileRef
