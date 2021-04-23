@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MarvelCharacterImage: Decodable {
+struct MarvelCharacterImage: Decodable, Hashable {
     let path : String?
     let `extension` : String?
     

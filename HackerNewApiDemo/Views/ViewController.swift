@@ -15,8 +15,11 @@ class ViewController: UIViewController{
     
     var marvelCharactersData : [MarvelCharacter] = []
     var searchFilteredData : [MarvelCharacter] = []
+    var favCharactersData : Set<MarvelCharacter> = []
     
     let searchController = UISearchController(searchResultsController: nil)
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +32,24 @@ class ViewController: UIViewController{
         registerCells()
         
         isLoading = true
+        
+        let character = MCharacter(context: context)
+        character.name = "Jyo"
+        character.id = 1
+        character.imageURL = "imageURL.jpg"
+        
+        do {
+            try context.save()
+        }catch {
+            print(error.localizedDescription)
+        }
+        
+        MCharacterListViewModel.fetchFavouriteCharacter{ count in
+            print(count)
+        }.forEach({ (character) in
+            favCharactersData.insert(character)
+        })
+        
         MCharacterListViewModel.loadNewsList{ [weak self] characters in
             DispatchQueue.main.async {
                 self?.isLoading = false
@@ -47,7 +68,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         if searchController.isActive{
             return 1
         }else{
-            return 2
+            if isLoading {
+                return 2
+            }
+            return 1
         }
     }
     
@@ -106,13 +130,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         if (offsetY > contentHeight * 0.75 && !isLoading &&
                 MCharacterListViewModel.currentTotal > marvelCharactersData.count &&
                 !searchController.isActive) {
+            isLoading = true
+            tableView.reloadData()
             loadMore()
         }
     }
     
     func loadMore(){
         print(#function)
-        isLoading = true
         MCharacterListViewModel.loadNewsList(offset: marvelCharactersData.count){
             [weak self] characters in
             

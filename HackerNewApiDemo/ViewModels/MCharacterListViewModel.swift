@@ -5,7 +5,8 @@
 //  Created by jyothish.johnson on 27/03/21.
 //
 
-import Foundation
+import UIKit
+import CoreData
 
 final class MCharacterListViewModel {
     
@@ -16,8 +17,9 @@ final class MCharacterListViewModel {
     
     static let characters = "/v1/public/characters"
     static var currentTotal : Int = 0
-//    https://gateway.marvel.com/v1/public/characters?ts=1616790639&apikey=e5485027d898a87c3809c77a12e0591e&hash=8a90000c7eb3c0030bf9aedcaa36445f
+    //    https://gateway.marvel.com/v1/public/characters?ts=1616790639&apikey=e5485027d898a87c3809c77a12e0591e&hash=8a90000c7eb3c0030bf9aedcaa36445f
     
+    static let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     static func loadNewsList(offset : Int = 0, completion : @escaping ([MarvelCharacter]) -> ()){
         NetworkManager.shared.makeRequest(createAPIEndpoint(to: characters, offset: offset)) {
@@ -47,5 +49,20 @@ final class MCharacterListViewModel {
         urlRequest.httpMethod = NetworkMethods.GET.rawValue
         return urlRequest
     }
-
+    
+    //MARK: - Core Data
+    
+    static func fetchFavouriteCharacter(completion : (Int) -> ()) -> [MarvelCharacter]{
+        
+        do{
+            let fav = try context.fetch(MCharacter.fetchRequest()) as [MCharacter]
+            completion(fav.count)
+            return MarvelCharacter.characterMapper(characters: fav)
+        }
+        catch{
+            print(error.localizedDescription)
+        }
+        return []
+    }
+    
 }
