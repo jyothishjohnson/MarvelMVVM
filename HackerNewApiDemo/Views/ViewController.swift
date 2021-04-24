@@ -33,18 +33,18 @@ class ViewController: UIViewController{
         
         isLoading = true
         
-        MCharacterListViewModel.deleteEntity(name: "MCharacter")
+//        MCharacterListViewModel.deleteEntity(name: "MCharacter")
         
-        let character = MCharacter(context: context)
-        character.name = "Jyo"
-        character.id = 1
-        character.imageURL = "imageURL.jpg"
-        
-        do {
-            try context.save()
-        }catch {
-            print(error.localizedDescription)
-        }
+//        let character = MCharacter(context: context)
+//        character.name = "Jyo"
+//        character.id = 1
+//        character.imageURL = "imageURL.jpg"
+//
+//        do {
+//            try context.save()
+//        }catch {
+//            print(error.localizedDescription)
+//        }
         
         MCharacterListViewModel.fetchFavouriteCharacter{ count in
             print(count)
@@ -121,11 +121,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
-        
-    }
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
@@ -153,6 +148,30 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         }
     }
 
+}
+
+//MARK: - Add/Delete from CoreData
+
+extension ViewController{
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        if marvelCharactersData.indices.contains(indexPath.row){
+            print(indexPath.row)
+            let character = marvelCharactersData[indexPath.row]
+            if favCharactersData.contains(character){
+                
+                favCharactersData.remove(character)
+                cell?.accessoryType = .none
+            }else {
+                
+                MCharacterListViewModel.addFavCharacter(character: character)
+                favCharactersData.insert(character)
+                cell?.accessoryType = .checkmark
+            }
+        }
+    }
+    
 }
 
 

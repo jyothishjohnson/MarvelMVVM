@@ -77,4 +77,18 @@ final class MCharacterListViewModel {
         }
     }
     
+    static func addFavCharacter(character: MarvelCharacter){
+        
+        let coreDataCharacter = MCharacter(context: container.viewContext)
+        coreDataCharacter.name = character.name
+        coreDataCharacter.id = Int64(character.id ?? -1)
+        coreDataCharacter.imageURL = character.imageURL
+        
+        do {
+            try container.viewContext.save()
+        }catch {
+            print(error.localizedDescription)
+        }
+    }
+    
 }
