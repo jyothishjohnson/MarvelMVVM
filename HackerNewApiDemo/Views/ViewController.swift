@@ -47,7 +47,7 @@ class ViewController: UIViewController{
 //        }
         
         MCharacterListViewModel.fetchFavouriteCharacter{ count in
-            print(count)
+            print(count, "#####")
         }.forEach({ (character) in
             favCharactersData.insert(character)
         })
@@ -95,14 +95,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
             guard let cell = tableView.dequeueReusableCell(withIdentifier: IconCells.MarvelCharacterCell.rawValue, for: indexPath) as? MarvelCharacterCell else {
                 fatalError()
             }
+            let character = searchController.isActive ? searchFilteredData[indexPath.row] : marvelCharactersData[indexPath.row]
             
-            let characterNameText = searchController.isActive ? searchFilteredData[indexPath.row].name : marvelCharactersData[indexPath.row].name
-            cell.characterName = characterNameText
+            cell.characterName = character.name
+            cell.imageURL = character.imageURL
             
-            let imagePath = searchController.isActive ? "\(searchFilteredData[indexPath.row].thumbnail?.path ?? "").\(searchFilteredData[indexPath.row].thumbnail?.extension ?? "")" :
-                "\(marvelCharactersData[indexPath.row].thumbnail?.path ?? "").\(marvelCharactersData[indexPath.row].thumbnail?.extension ?? "")"
-            cell.imageURL = imagePath
-            
+            if favCharactersData.contains(character){
+                cell.accessoryType = .checkmark
+            }
             return cell
         }else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: IconCells.LoadingCell.rawValue, for: indexPath) as? LoadingCell else {

@@ -13,7 +13,7 @@ struct MarvelCharacter: Decodable, Hashable{
     let thumbnail : MarvelCharacterImage?
     
     var imageURL :  String {
-        return "\(String(describing: thumbnail?.path)).\(String(describing: thumbnail?.extension))"
+        return "\(thumbnail?.path ?? "").\(thumbnail?.extension ?? "")"
     }
     
     static func characterMapper(characters: [MCharacter]) -> [Self]{
