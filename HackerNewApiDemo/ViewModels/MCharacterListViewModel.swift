@@ -17,6 +17,8 @@ final class MCharacterListViewModel {
     
     static let characters = "/v1/public/characters"
     static var currentTotal : Int = 0
+    
+    static var favCharacters : [MCharacter] = []
     //    https://gateway.marvel.com/v1/public/characters?ts=1616790639&apikey=e5485027d898a87c3809c77a12e0591e&hash=8a90000c7eb3c0030bf9aedcaa36445f
     
     static let container = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
@@ -56,6 +58,7 @@ final class MCharacterListViewModel {
         
         do{
             let fav = try container.viewContext.fetch(MCharacter.fetchRequest()) as [MCharacter]
+            favCharacters = fav
             completion(fav.count)
             return MarvelCharacter.characterMapper(characters: fav)
         }
@@ -85,6 +88,25 @@ final class MCharacterListViewModel {
         coreDataCharacter.imageURL = character.imageURL
         
         do {
+            try container.viewContext.save()
+        }catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    static func deleteFavCharacter(character: MarvelCharacter){
+        
+        guard let character = favCharacters.first(where: { coreDataCharacter -> Bool in
+            
+            character.id ?? -1 == coreDataCharacter.id
+            
+        }) else {
+            return
+        }
+        
+        container.viewContext.delete(character)
+        
+        do{
             try container.viewContext.save()
         }catch {
             print(error.localizedDescription)

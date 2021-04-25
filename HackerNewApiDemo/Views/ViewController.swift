@@ -161,6 +161,7 @@ extension ViewController{
             let character = marvelCharactersData[indexPath.row]
             if favCharactersData.contains(character){
                 
+                MCharacterListViewModel.deleteFavCharacter(character: character)
                 favCharactersData.remove(character)
                 cell?.accessoryType = .none
             }else {
