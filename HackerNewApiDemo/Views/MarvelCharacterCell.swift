@@ -30,4 +30,8 @@ class MarvelCharacterCell: UITableViewCell {
         characterImage.layer.cornerRadius = 8
     }
     
+    override func prepareForReuse() {
+        self.accessoryType = .none
+    }
+    
 }
