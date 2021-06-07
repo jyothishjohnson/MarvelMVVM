@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class TabBarViewController: UITabBarController {
     
@@ -15,13 +16,15 @@ class TabBarViewController: UITabBarController {
         UITabBar.appearance().tintColor = .purple
         
         let topVC = ViewController()
+        topVC.vcType = .normal
         topVC.title = "Marvel Icons"
         topVC.navigationItem.largeTitleDisplayMode = .never
-        let latestVC = ViewController()
+        let latestVC = UIHostingController(rootView: PayHome())
         latestVC.title = "Comics"
         latestVC.navigationItem.largeTitleDisplayMode = .never
         let bookmarkVC = ViewController()
-        bookmarkVC.title = "Bookmarks"
+        topVC.vcType = .favourites
+        bookmarkVC.title = "Favs"
         bookmarkVC.navigationItem.largeTitleDisplayMode = .never
 
         
@@ -40,4 +43,9 @@ class TabBarViewController: UITabBarController {
         self.setViewControllers([navOne,navTwo,navThree], animated: true)
         
     }
+}
+
+enum MarvelCharacterVCType {
+    case normal
+    case favourites
 }

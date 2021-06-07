@@ -13,6 +13,8 @@ class ViewController: UIViewController{
     
     var isLoading : Bool = false
     
+    var vcType : MarvelCharacterVCType?
+    
     var marvelCharactersData : [MarvelCharacter] = []
     var searchFilteredData : [MarvelCharacter] = []
     var favCharactersData : Set<MarvelCharacter> = []

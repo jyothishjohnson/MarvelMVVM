@@ -26,6 +26,13 @@
 		22ABEDE5260D9E610033B658 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22ABEDE3260D9E610033B658 /* ViewController.xib */; };
 		22EB6D042622DBC900BDE5BD /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EB6D022622DBC900BDE5BD /* LoadingCell.swift */; };
 		22EB6D052622DBC900BDE5BD /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22EB6D032622DBC900BDE5BD /* LoadingCell.xib */; };
+		B241FA872661F9E800BC12C3 /* PayRecentExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241FA832661F9E700BC12C3 /* PayRecentExpensesView.swift */; };
+		B241FA882661F9E800BC12C3 /* PayCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241FA842661F9E700BC12C3 /* PayCardView.swift */; };
+		B241FA892661F9E800BC12C3 /* PayHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241FA852661F9E700BC12C3 /* PayHome.swift */; };
+		B241FA8A2661F9E800BC12C3 /* PaySingleExpenseListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241FA862661F9E800BC12C3 /* PaySingleExpenseListCellView.swift */; };
+		B241FA8C2661F9FD00BC12C3 /* DemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241FA8B2661F9FD00BC12C3 /* DemoView.swift */; };
+		B241FA8E2661FA2E00BC12C3 /* TriangleShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241FA8D2661FA2E00BC12C3 /* TriangleShape.swift */; };
+		B241FA902661FE7900BC12C3 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B241FA8F2661FE7900BC12C3 /* ColorExtension.swift */; };
 		CF33474671AFF813C2A2CAF6 /* Pods_HackerNewApiDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11026D5C99D8F14D1DA20EF7 /* Pods_HackerNewApiDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +60,13 @@
 		22EB6D022622DBC900BDE5BD /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
 		22EB6D032622DBC900BDE5BD /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		28EF4B250FC943C3E65A0D6A /* Pods-HackerNewApiDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackerNewApiDemo.debug.xcconfig"; path = "Target Support Files/Pods-HackerNewApiDemo/Pods-HackerNewApiDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		B241FA832661F9E700BC12C3 /* PayRecentExpensesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayRecentExpensesView.swift; sourceTree = "<group>"; };
+		B241FA842661F9E700BC12C3 /* PayCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayCardView.swift; sourceTree = "<group>"; };
+		B241FA852661F9E700BC12C3 /* PayHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayHome.swift; sourceTree = "<group>"; };
+		B241FA862661F9E800BC12C3 /* PaySingleExpenseListCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaySingleExpenseListCellView.swift; sourceTree = "<group>"; };
+		B241FA8B2661F9FD00BC12C3 /* DemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoView.swift; sourceTree = "<group>"; };
+		B241FA8D2661FA2E00BC12C3 /* TriangleShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriangleShape.swift; sourceTree = "<group>"; };
+		B241FA8F2661FE7900BC12C3 /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		CB3A1F914EB015D6EA9C0E7A /* Pods-HackerNewApiDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackerNewApiDemo.release.xcconfig"; path = "Target Support Files/Pods-HackerNewApiDemo/Pods-HackerNewApiDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,10 +147,13 @@
 		22ABEDC5260D99200033B658 /* HackerNewApiDemo */ = {
 			isa = PBXGroup;
 			children = (
+				B241FA822661F9D300BC12C3 /* Payments */,
 				2225DE24260F96B500E7B492 /* Models */,
 				2225DE22260F965200E7B492 /* Views */,
 				2225DE23260F967300E7B492 /* ViewModels */,
 				224D2B8D260E731700C5EADC /* NetworkManager.swift */,
+				B241FA8D2661FA2E00BC12C3 /* TriangleShape.swift */,
+				B241FA8F2661FE7900BC12C3 /* ColorExtension.swift */,
 				22ABEDD4260D99210033B658 /* Info.plist */,
 				22ABEDCF260D99210033B658 /* Assets.xcassets */,
 				2225DE21260F963900E7B492 /* Utils */,
@@ -151,6 +168,18 @@
 				11026D5C99D8F14D1DA20EF7 /* Pods_HackerNewApiDemo.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B241FA822661F9D300BC12C3 /* Payments */ = {
+			isa = PBXGroup;
+			children = (
+				B241FA852661F9E700BC12C3 /* PayHome.swift */,
+				B241FA842661F9E700BC12C3 /* PayCardView.swift */,
+				B241FA832661F9E700BC12C3 /* PayRecentExpensesView.swift */,
+				B241FA862661F9E800BC12C3 /* PaySingleExpenseListCellView.swift */,
+				B241FA8B2661F9FD00BC12C3 /* DemoView.swift */,
+			);
+			path = Payments;
 			sourceTree = "<group>";
 		};
 		C959DA94EAE498321E8A005A /* Pods */ = {
@@ -284,12 +313,19 @@
 				2225DE29260F96F300E7B492 /* MarvelResponse.swift in Sources */,
 				220AA3682632AD1400F8FD25 /* Marvel.xcdatamodeld in Sources */,
 				2225DE2C260F970000E7B492 /* MarvelData.swift in Sources */,
+				B241FA8A2661F9E800BC12C3 /* PaySingleExpenseListCellView.swift in Sources */,
 				22ABEDC7260D99200033B658 /* AppDelegate.swift in Sources */,
+				B241FA892661F9E800BC12C3 /* PayHome.swift in Sources */,
+				B241FA8E2661FA2E00BC12C3 /* TriangleShape.swift in Sources */,
 				224D2B8E260E731700C5EADC /* NetworkManager.swift in Sources */,
 				22EB6D042622DBC900BDE5BD /* LoadingCell.swift in Sources */,
+				B241FA902661FE7900BC12C3 /* ColorExtension.swift in Sources */,
 				22ABEDC9260D99200033B658 /* SceneDelegate.swift in Sources */,
 				2225DE2F260F970C00E7B492 /* MarvelCharacterImage.swift in Sources */,
+				B241FA882661F9E800BC12C3 /* PayCardView.swift in Sources */,
 				224D2B8B260E600D00C5EADC /* TabBarViewController.swift in Sources */,
+				B241FA872661F9E800BC12C3 /* PayRecentExpensesView.swift in Sources */,
+				B241FA8C2661F9FD00BC12C3 /* DemoView.swift in Sources */,
 				224D2B84260E53B300C5EADC /* UIColor+Hex.swift in Sources */,
 				224D2B91260E737900C5EADC /* MCharacterListViewModel.swift in Sources */,
 			);
